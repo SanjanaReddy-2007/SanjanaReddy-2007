@@ -3,7 +3,9 @@ name: Generate contribution snake 🐍
 on:
   schedule:
     - cron: "0 0 * * *"
+
   workflow_dispatch:
+
   push:
     branches:
       - main
@@ -17,9 +19,11 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Generate snake SVG + GIF
       - name: Generate snake animation
         uses: Platane/snk@v3
         with:
@@ -29,11 +33,25 @@ jobs:
             dist/github-snake-pink.svg?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6
             dist/github-snake.gif
 
+      # 3. Check that all files were generated
       - name: Check generated files
         run: |
           echo "Generated files:"
           find dist -type f -print
 
+      # 4. Check whether GIF contains multiple frames
+      - name: Check GIF animation
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+
+          echo "GIF information:"
+          identify dist/github-snake.gif | head -20
+
+          echo "Frame count:"
+          identify dist/github-snake.gif | wc -l
+
+      # 5. Push generated files to output branch
       - name: Push snake to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
