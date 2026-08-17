@@ -18,9 +18,6 @@
 <a href="https://www.linkedin.com/in/aresanjanareddy/">
   <img src="https://img.shields.io/badge/LinkedIn-aresanjanareddy-c86bff?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
-<a href="https://leetcode.com/u/Sanjana_Reddy_Are_07/">
-  <img src="https://img.shields.io/badge/LeetCode-Sanjana__Reddy__Are__07-ff9ad1?style=for-the-badge&logo=leetcode&logoColor=white" alt="LeetCode">
-</a>
 <a href="https://github.com/SanjanaReddy-2007">
   <img src="https://img.shields.io/badge/GitHub-SanjanaReddy--2007-2a0e3d?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
 </a>
@@ -78,7 +75,7 @@
 
 <br>
 
-## 📈 Contribution Activity
+<!--## 📈 Contribution Activity
 
 <div align="center">
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=SanjanaReddy-2007&theme=react-dark&bg_color=1a0b2e&color=ff8fd6&line=ff6ec7&point=ffffff&area=true&hide_border=true" alt="Contribution activity graph" width="100%">
@@ -98,7 +95,7 @@
 
 <sub>Generated daily by <code>github-snake.yml</code> from live contribution data — see setup note below.</sub>
 
-</div>
+</div>-->
 
 <br>
 
