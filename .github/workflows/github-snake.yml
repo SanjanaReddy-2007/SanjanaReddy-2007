@@ -1,14 +1,7 @@
-name: Generate contribution snake 🐍
+name: Test Snake GIF 🐍
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
-
   workflow_dispatch:
-
-  push:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -16,45 +9,43 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
 
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Generate snake
+      - name: Generate snake GIF
         uses: Platane/snk@v3.5.0
         with:
           github_user_name: SanjanaReddy-2007
           outputs: |
-            dist/github-snake.gif
-            dist/github-snake.svg
-            dist/github-snake-pink.svg?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6
+            dist/github-snake.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Check generated files
-        run: |
-          echo "Generated files:"
-          ls -lh dist/
-
-      - name: Check GIF
+      - name: Check GIF animation
         run: |
           sudo apt-get update
-          sudo apt-get install -y imagemagick
+          sudo apt-get install -y gifsicle
 
-          echo "GIF:"
-          identify dist/github-snake.gif | head -10
+          echo "=== GIF FILE ==="
+          ls -lh dist/github-snake.gif
 
-          echo "Frame count:"
-          identify dist/github-snake.gif | wc -l
+          echo "=== GIF INFORMATION ==="
+          gifsicle --info dist/github-snake.gif
 
-      - name: Push to output branch
+          echo "=== EXTRACTING FRAMES ==="
+          mkdir -p frames
+          gifsicle --explode dist/github-snake.gif --output "frames/frame.gif"
+
+          echo "=== FRAME FILES ==="
+          ls -lh frames/
+
+      - name: Push GIF
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: "Update snake animation"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
