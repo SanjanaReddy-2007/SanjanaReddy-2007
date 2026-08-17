@@ -1,14 +1,12 @@
-name: Generate Snake Animation
+name: Generate contribution snake 🐍
 
 on:
   schedule:
-    # Runs every day at 00:00 UTC — GitHub's contribution graph updates roughly daily,
-    # so once a day is enough to keep the snake in sync.
-    - cron: "0 0 * * *"
-  workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
+    - cron: "0 0 * * *"   # runs every day at midnight
+  workflow_dispatch:       # lets you run it manually from the Actions tab
   push:
     branches:
-      - main              # regenerate whenever you push to main (optional, remove if noisy)
+      - main
 
 permissions:
   contents: write
@@ -18,23 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        # REQUIRED: crazy-max/ghaction-github-pages needs an actual git working
-        # directory to push from. Without this step it has nothing to commit,
-        # which is why the snake wasn't updating before.
-
-      - name: Generate a pink/purple themed snake animation
-        uses: Platane/snk@v3
+      - name: Generate snake animation
+        uses: Platane/snk/svg-only@v3
         with:
           github_user_name: SanjanaReddy-2007
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/github-snake.gif?color_snake=%23ff6ec7&color_dots=%232a0e3d,%23c86bff,%23ff8fd6,%23ff6ec7,%23ffffff
+            dist/github-snake.svg?palette=github-dark
+            dist/github-snake-pink.svg?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6
 
-      - name: Push snake output to the "output" branch
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Push snake to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
