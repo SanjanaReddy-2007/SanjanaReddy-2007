@@ -34,7 +34,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # ADD THE NEW CHECK HERE
       - name: Inspect generated snake
         run: |
           echo "=== FILES ==="
@@ -46,23 +45,15 @@ jobs:
           echo "=== SVG ANIMATION ==="
           grep -o "<animate" dist/github-snake.svg | wc -l
 
-          echo "=== GIF FRAMES ==="
-          identify dist/github-snake.gif | wc -l
-
-      - name: Check generated files
-        run: |
-          echo "Generated files:"
-          find dist -type f -print
-
       - name: Check GIF animation
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
 
-          echo "GIF information:"
+          echo "=== GIF INFORMATION ==="
           identify dist/github-snake.gif | head -20
 
-          echo "Frame count:"
+          echo "=== GIF FRAME COUNT ==="
           identify dist/github-snake.gif | wc -l
 
       - name: Push snake to output branch
