@@ -16,7 +16,14 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        # REQUIRED: crazy-max/ghaction-github-pages needs an actual git working
+        # directory to push from. Without this step it has nothing to commit,
+        # which is why the snake wasn't updating before.
+
       - name: Generate a pink/purple themed snake animation
         uses: Platane/snk@v3
         with:
