@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 190" width="700" height="190" font-family="Segoe UI,Verdana,sans-serif">
+
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1a0b2e"/>
+    <stop offset="100%" stop-color="#2a0e3d"/>
+  </linearGradient>
+  <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ff8fd6"/>
+    <stop offset="100%" stop-color="#c86bff"/>
+  </linearGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="round"><rect x="0" y="0" width="700" height="190" rx="18"/></clipPath>
+</defs>
+
+
+    <style>
+      .card { opacity:0; animation: cardIn 0.6s ease-out forwards; }
+      @keyframes cardIn { from{opacity:0;} to{opacity:1;} }
+      .cell { opacity:0; transform: scale(0.6) translateY(14px); transform-box: fill-box; transform-origin: center;
+               animation: popCell 0.55s cubic-bezier(.2,1.4,.4,1) forwards; }
+      @keyframes popCell { to { opacity:1; transform: scale(1) translateY(0); } }
+      .rankglow { animation: rglow 2.2s ease-in-out infinite; }
+      @keyframes rglow { 0%,100%{ filter:drop-shadow(0 0 2px currentColor); } 50%{ filter:drop-shadow(0 0 9px currentColor); } }
+      .shine { animation: shsweep 3.5s ease-in-out infinite; }
+      @keyframes shsweep { 0%{transform:translateX(-90px);} 40%{transform:translateX(90px);} 100%{transform:translateX(90px);} }
+    </style>
+    
+<g class="card" clip-path="url(#round)">
+<rect width="700" height="190" fill="url(#bgGrad)"/>
+<rect x="1" y="1" width="698" height="188" rx="17" fill="none" stroke="rgba(255,182,230,0.3)" stroke-width="1.5"/>
+<g transform="translate(58.3,95.0)">
+<g class="cell" style="animation-delay:0.00s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip0"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip0)">
+<g class="shine" style="animation-delay:0.00s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#ffd76e" style="color:#ffd76e;">S</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">Stars</text>
+</g></g>
+<g transform="translate(175.0,95.0)">
+<g class="cell" style="animation-delay:0.15s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip1"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip1)">
+<g class="shine" style="animation-delay:0.40s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#ff6ec7" style="color:#ff6ec7;">A+</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">Commits</text>
+</g></g>
+<g transform="translate(291.7,95.0)">
+<g class="cell" style="animation-delay:0.30s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip2"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip2)">
+<g class="shine" style="animation-delay:0.80s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#c86bff" style="color:#c86bff;">A</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">PRs</text>
+</g></g>
+<g transform="translate(408.3,95.0)">
+<g class="cell" style="animation-delay:0.45s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip3"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip3)">
+<g class="shine" style="animation-delay:1.20s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#6ec7ff" style="color:#6ec7ff;">B+</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">Followers</text>
+</g></g>
+<g transform="translate(525.0,95.0)">
+<g class="cell" style="animation-delay:0.60s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip4"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip4)">
+<g class="shine" style="animation-delay:1.60s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#8effc7" style="color:#8effc7;">A</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">Repositories</text>
+</g></g>
+<g transform="translate(641.7,95.0)">
+<g class="cell" style="animation-delay:0.75s">
+<rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,182,230,0.3)" stroke-width="1"/>
+<clipPath id="cellclip5"><rect x="-50.3" y="-81.0" width="100.7" height="162.0" rx="12"/></clipPath>
+<g clip-path="url(#cellclip5)">
+<g class="shine" style="animation-delay:2.00s"><rect x="-40" y="-95.0" width="30" height="190" fill="#fff" opacity="0.12" transform="skewX(-18)"/></g>
+</g>
+<text class="rankglow" x="0" y="-12" text-anchor="middle" font-size="26" font-weight="800" fill="#ff9a6e" style="color:#ff9a6e;">SS</text>
+<text x="0" y="26" text-anchor="middle" font-size="12.5" fill="#c9a8e0">Experience</text>
+</g></g>
+</g>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 260" width="470" height="260" font-family="Segoe UI,Verdana,sans-serif">
+
+<defs>
+  <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#1a0b2e"/>
+    <stop offset="100%" stop-color="#2a0e3d"/>
+  </linearGradient>
+  <linearGradient id="barGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ff8fd6"/>
+    <stop offset="100%" stop-color="#c86bff"/>
+  </linearGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="round"><rect x="0" y="0" width="470" height="260" rx="18"/></clipPath>
+</defs>
+
+
+    <style>
+      .card { opacity:0; animation: cardIn 0.6s ease-out forwards; }
+      @keyframes cardIn { from{opacity:0;} to{opacity:1;} }
+      .ring { stroke-dasharray: 289.03; stroke-dashoffset: 289.03;
+               animation: ringGrow 1.8s cubic-bezier(.3,.8,.3,1) 0.3s forwards; }
+      @keyframes ringGrow { to { stroke-dashoffset: 26.01; } }
+      .row { opacity:0; transform: translateX(-14px); animation: rowIn 0.55s ease-out forwards; }
+      @keyframes rowIn { to { opacity:1; transform: translateX(0); } }
+      .rankval { opacity:0; animation: fadeIn 0.6s ease-out 1.6s forwards; }
+      @keyframes fadeIn { to { opacity:1; } }
+    </style>
+    
+<g class="card" clip-path="url(#round)">
+<rect width="470" height="260" fill="url(#bgGrad)"/>
+<rect x="1" y="1" width="468" height="258" rx="17" fill="none" stroke="rgba(255,182,230,0.3)" stroke-width="1.5"/>
+<text x="24" y="34" font-size="17" font-weight="700" fill="#f3e8ff">GitHub Stats</text>
+<circle cx="380" cy="100" r="46" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="10"/>
+<circle class="ring" cx="380" cy="100" r="46" fill="none" stroke="url(#barGrad)" stroke-width="10" stroke-linecap="round" transform="rotate(-90 380 100)" filter="url(#glow)"/>
+<text class="rankval" x="380" y="107" text-anchor="middle" font-size="22" font-weight="800" fill="#f3e8ff">A+</text>
+<text x="380" y="170" text-anchor="middle" font-size="12" fill="#c9a8e0">Overall Rank</text>
+<g transform="translate(24,66)">
+<g class="row" style="animation-delay:0.20s">
+<circle cx="4" cy="-5" r="4" fill="#ff6ec7"/>
+<text x="16" y="0" font-size="13.5" fill="#c9a8e0">Total Stars</text>
+<text x="220" y="0" font-size="14" font-weight="700" fill="#f3e8ff" text-anchor="end">48</text>
+</g></g>
+<g transform="translate(24,100)">
+<g class="row" style="animation-delay:0.35s">
+<circle cx="4" cy="-5" r="4" fill="#ff6ec7"/>
+<text x="16" y="0" font-size="13.5" fill="#c9a8e0">Total Commits</text>
+<text x="220" y="0" font-size="14" font-weight="700" fill="#f3e8ff" text-anchor="end">620+</text>
+</g></g>
+<g transform="translate(24,134)">
+<g class="row" style="animation-delay:0.50s">
+<circle cx="4" cy="-5" r="4" fill="#ff6ec7"/>
+<text x="16" y="0" font-size="13.5" fill="#c9a8e0">PRs Merged</text>
+<text x="220" y="0" font-size="14" font-weight="700" fill="#f3e8ff" text-anchor="end">35</text>
+</g></g>
+<g transform="translate(24,168)">
+<g class="row" style="animation-delay:0.65s">
+<circle cx="4" cy="-5" r="4" fill="#ff6ec7"/>
+<text x="16" y="0" font-size="13.5" fill="#c9a8e0">Repositories</text>
+<text x="220" y="0" font-size="14" font-weight="700" fill="#f3e8ff" text-anchor="end">22</text>
+</g></g>
+</g>
+</svg>
