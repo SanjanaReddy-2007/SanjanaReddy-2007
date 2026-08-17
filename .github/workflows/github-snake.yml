@@ -19,11 +19,12 @@ jobs:
     timeout-minutes: 10
 
     steps:
+
       # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Generate snake SVG + GIF
+      # 2. Generate snake animation
       - name: Generate snake animation
         uses: Platane/snk@v3
         with:
@@ -32,14 +33,16 @@ jobs:
             dist/github-snake.svg?palette=github-dark
             dist/github-snake-pink.svg?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6
             dist/github-snake.gif
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 3. Check that all files were generated
+      # 3. Check generated files
       - name: Check generated files
         run: |
           echo "Generated files:"
           find dist -type f -print
 
-      # 4. Check whether GIF contains multiple frames
+      # 4. Check GIF frame count
       - name: Check GIF animation
         run: |
           sudo apt-get update
@@ -51,7 +54,7 @@ jobs:
           echo "Frame count:"
           identify dist/github-snake.gif | wc -l
 
-      # 5. Push generated files to output branch
+      # 5. Push files to output branch
       - name: Push snake to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
