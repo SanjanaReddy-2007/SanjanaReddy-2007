@@ -20,42 +20,29 @@ jobs:
 
     steps:
 
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Generate the animated snake
       - name: Generate snake animation
-        uses: Platane/snk@v3
+        uses: Platane/snk@v3.5.0
         with:
-          github_user_name: SanjanaReddy-2007
+          github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-snake.svg?palette=github-dark
             dist/github-snake-pink.svg?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6
-            dist/github-snake.gif
+            dist/github-snake.gif?color_snake=#ff7eb6&color_dots=#2d1b4e,#5b2a86,#8b5cf6,#c084fc,#ff7eb6&color_background=#0d1117
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Inspect generated snake
+      # Show generated files
+      - name: Check generated files
         run: |
-          echo "=== FILES ==="
+          echo "Generated files:"
           ls -lh dist/
 
-          echo "=== SVG SIZE ==="
-          wc -c dist/github-snake.svg
-
-          echo "=== SVG ANIMATION ==="
-          grep -o "<animate" dist/github-snake.svg | wc -l
-
-      - name: Check GIF animation
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
-
-          echo "=== GIF INFORMATION ==="
-          identify dist/github-snake.gif | head -20
-
-          echo "=== GIF FRAME COUNT ==="
-          identify dist/github-snake.gif | wc -l
-
+      # Push files to output branch
       - name: Push snake to output branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
