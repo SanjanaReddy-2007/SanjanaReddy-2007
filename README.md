@@ -88,6 +88,13 @@
 
 ## 🐍 Contribution Snake
 
+<p align="center">
+  <img
+    src="https://raw.githubusercontent.com/SanjanaReddy-2007/SanjanaReddy-2007/output/github-snake.svg"
+    alt="GitHub Contribution Snake"
+  />
+</p>
+
 <div align="center">
 
 <picture>
